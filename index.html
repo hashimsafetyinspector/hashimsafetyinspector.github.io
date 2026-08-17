@@ -74,6 +74,20 @@ header::after {
   background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
 }
 
+/* Profile Icon Container */
+.profile-img-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(0, 242, 254, 0.05);
+  border: 3px solid var(--accent-cyan);
+  box-shadow: 0 0 35px var(--accent-glow);
+  margin-bottom: 25px;
+}
+
 header h1 {
   font-size: 46px;
   font-weight: 800;
@@ -279,6 +293,11 @@ footer {
 <body>
 
 <header>
+  <!-- Safety Icon Container -->
+  <div class="profile-img-container">
+    <i class="fas fa-hard-hat" style="font-size: 55px; color: var(--accent-cyan);"></i>
+  </div>
+
   <h1>Professional Safety Adviser & Operations Specialist</h1>
   <p>HSE Expert | Safety Inspector | Administrative Professional</p>
 </header>
