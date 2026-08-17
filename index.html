@@ -166,57 +166,6 @@ header p {
   letter-spacing: 0.5px;
 }
 
-/* Header Action Buttons */
-.header-btns {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 26px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-main);
-  text-decoration: none;
-  border-radius: 14px;
-  font-weight: 600;
-  font-size: 14px;
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
-.btn i {
-  pointer-events: none;
-}
-
-.btn.selected {
-  background: rgba(0, 242, 254, 0.2);
-  border-color: var(--accent-cyan);
-  color: #fff;
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #00f2fe, #3b82f6);
-  color: #030712;
-  border: none;
-  font-weight: 700;
-  box-shadow: 0 4px 25px rgba(0, 242, 254, 0.4);
-}
-
-.btn-primary.selected {
-  background: linear-gradient(135deg, #3b82f6, #00f2fe);
-  color: #fff;
-  box-shadow: 0 6px 35px rgba(0, 242, 254, 0.8);
-}
-
 /* Layout Container */
 section {
   max-width: 1050px;
@@ -394,23 +343,6 @@ h2::after {
   margin-bottom: 20px;
 }
 
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 18px;
-  color: var(--accent-cyan);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.project-link:hover {
-  color: var(--accent-purple);
-  transform: translateX(6px);
-}
-
 .tags {
   display: flex;
   gap: 8px;
@@ -447,7 +379,6 @@ footer {
 @media (max-width: 600px) {
   header h1 { font-size: 32px; }
   header p { font-size: 15px; }
-  .header-btns { flex-direction: column; }
   .profile-social-bar { gap: 8px; }
   .social-pill { padding: 8px 14px; font-size: 12px; }
 }
@@ -456,18 +387,15 @@ footer {
 <body>
 
 <header>
-  <!-- Profile Photo Container (Using hashimali github image directly) -->
+  <!-- Profile Photo Container -->
   <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
     <img class="profile-img" id="profileImg" src="https://github.com/hashimali.png" alt="Hashim Ali">
   </div>
 
-  <!-- Professional Quick Links Bar -->
+  <!-- Professional Quick Links Bar (Only Email & GitHub, LinkedIn removed) -->
   <div class="profile-social-bar">
-    <a class="social-pill two-click-link" data-href="mailto:hashimali@gmail.com">
+    <a class="social-pill two-click-link" data-href="mailto:hashimalinana@gmail.com">
       <i class="fas fa-envelope"></i> Email
-    </a>
-    <a class="social-pill two-click-link" data-href="https://www.linkedin.com" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
     </a>
     <a class="social-pill two-click-link" data-href="https://github.com/hashimali" target="_blank">
       <i class="fab fa-github"></i> GitHub
@@ -476,16 +404,6 @@ footer {
 
   <h1>Hashim Ali</h1>
   <p>Professional Safety Adviser | HSE Expert & Safety Inspector</p>
-  
-  <!-- Header Action Buttons -->
-  <div class="header-btns">
-    <a class="btn btn-primary two-click-link" data-href="https://www.linkedin.com" target="_blank">
-      <i class="fab fa-linkedin"></i> Connect on LinkedIn
-    </a>
-    <a class="btn two-click-link" data-href="https://github.com/hashimali" target="_blank">
-      <i class="fab fa-github"></i> Explore GitHub
-    </a>
-  </div>
 </header>
 
 <section>
@@ -603,7 +521,7 @@ footer {
     profileBox.addEventListener('click', (e) => {
       e.stopPropagation();
       profileBox.classList.toggle('zoomed');
-      vibrate([120, 50, 120]); // Heavy Vibration
+      vibrate([120, 50, 120]);
     });
 
     document.addEventListener('click', (e) => {
@@ -634,6 +552,7 @@ footer {
         }
       } else {
         twoClickLinks.forEach(l => l.classList.remove('selected'));
+        this.classList.add('slected');
         this.classList.add('selected');
         vibrate([70]);
       }
@@ -649,6 +568,7 @@ footer {
 
 </body>
 </html>
+
 
   
         
