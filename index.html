@@ -3,114 +3,604 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Safety Professional Portfolio</title>
+<title>Azeem Rasheed | Safety Professional & Systems Portfolio</title>
+<meta name="google-site-verification" content="11lwcCAqtleg0olQEfAuu__Ml9If-L7WntBMcMas7Kw" />
+<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-  --bg-main: #0a0a0c;
-  --bg-card: #15151a;
-  --accent-gold: #fbbf24;
-  --accent-blue: #38bdf8;
+  --bg-main: #030712;
+  --bg-card: #0b0f19;
+  --bg-card-hover: #111827;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --accent-blue: #3b82f6;
+  --accent-gold: #f59e0b;
+  --accent-glow: rgba(6, 182, 212, 0.4);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(6, 182, 212, 0.5);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
 
-body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
 
-/* Header */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+}
+
+/* Header Section */
 header {
-  padding: 80px 20px;
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.95), rgba(3, 7, 18, 0.98)),
+              url('https://images.unsplash.com/photo-1541888946425-d0fbb18f1f5d?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px 60px;
   text-align: center;
-  background: linear-gradient(to bottom, #1e293b, #0a0a0c);
-  border-bottom: 2px solid var(--accent-gold);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
 }
 
-.profile-icon {
-  font-size: 80px;
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-gold), transparent);
+}
+
+/* Profile Photo Zoom Wrapper & Container */
+.profile-img-container {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 25px;
+  z-index: 100;
+  user-select: none;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-cyan);
+  box-shadow: 0 0 35px var(--accent-glow);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+/* Large Zoom State */
+.profile-img-container.zoomed .profile-img {
+  transform: scale(2.1);
+  box-shadow: 0 0 80px rgba(6, 182, 212, 0.9), 0 0 120px rgba(245, 158, 11, 0.6);
+  border-color: #ffffff;
+}
+
+/* Professional Quick Links Bar */
+.profile-social-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-pill i {
+  color: var(--accent-cyan);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.social-pill.selected {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.5);
+}
+
+header h1 {
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  text-shadow: 0 0 40px rgba(6, 182, 212, 0.2);
+}
+
+header p {
+  font-size: 17px;
   color: var(--accent-gold);
+  margin-bottom: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Header Action Buttons */
+.header-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn i {
+  pointer-events: none;
+}
+
+.btn.selected {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: #030712;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 4px 25px rgba(6, 182, 212, 0.4);
+}
+
+.btn-primary.selected {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #fff;
+  box-shadow: 0 6px 35px rgba(6, 182, 212, 0.8);
+}
+
+/* Layout Container */
+section {
+  max-width: 1050px;
+  margin: auto;
+  padding: 55px 20px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+}
+
+h2 i {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-hover), transparent);
+  margin-left: 15px;
+}
+
+/* About Me Box - Rotating Light Animation */
+.about-glowing-wrapper {
+  position: relative;
+  border-radius: 22px;
+  padding: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-glowing-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 45px rgba(6, 182, 212, 0.25);
+}
+
+.about-glowing-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, var(--accent-cyan) 90deg, var(--accent-gold) 180deg, transparent 270deg, transparent 360deg);
+  animation: rotateLight 4s linear infinite;
+}
+
+@keyframes rotateLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.about {
+  position: relative;
+  background: var(--bg-card);
+  padding: 35px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: var(--text-muted);
+  text-align: center !important;
+  z-index: 1;
+}
+
+.about p {
+  text-align: center !important;
+  margin: 0 auto;
+}
+
+/* Skills Grid */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.skill {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.skill i {
+  font-size: 26px;
+  color: var(--accent-cyan);
+  transition: transform 0.3s ease;
+}
+
+.skill h3 {
+  font-size: 15px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.skill:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+  box-shadow: 0 12px 35px rgba(6, 182, 212, 0.15);
+}
+
+.skill:hover i {
+  transform: scale(1.25) rotate(5deg);
+  color: var(--accent-gold);
+}
+
+/* Projects & Education Shared Card Style */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(6, 182, 212, 0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  color: var(--accent-cyan);
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
-header h1 { font-size: 40px; color: #fff; margin-bottom: 10px; }
-header p { font-size: 18px; color: var(--accent-blue); font-weight: bold; }
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
-/* Sections */
-section { max-width: 900px; margin: auto; padding: 50px 20px; }
-h2 { font-size: 26px; margin-bottom: 30px; color: var(--accent-gold); display: flex; align-items: center; gap: 15px; }
-h2::after { content: ''; flex: 1; height: 1px; background: var(--border-color); }
+.tag {
+  background: rgba(6, 182, 212, 0.06);
+  color: var(--accent-cyan);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(6, 182, 212, 0.15);
+}
 
-/* Grid Cards */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.card { background: var(--bg-card); padding: 25px; border-radius: 15px; border: 1px solid var(--border-color); transition: 0.3s; }
-.card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
-.card h3 { color: var(--accent-blue); margin-bottom: 10px; }
-.card p { color: var(--text-muted); font-size: 14px; }
+/* Education Container Centered */
+.education-container {
+  display: flex;
+  justify-content: center;
+}
 
-/* Skills */
-.skills { display: flex; flex-wrap: wrap; gap: 10px; }
-.skill-tag { background: #1e293b; padding: 10px 20px; border-radius: 50px; border: 1px solid var(--accent-blue); color: var(--accent-blue); font-size: 14px; }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg-card);
+  margin-top: 70px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 14px;
+}
 
-footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border-color); }
+@media (max-width: 600px) {
+  header h1 { font-size: 32px; }
+  header p { font-size: 15px; }
+  .header-btns { flex-direction: column; }
+  .profile-social-bar { gap: 8px; }
+  .social-pill { padding: 8px 14px; font-size: 12px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="profile-icon"><i class="fas fa-hard-hat"></i></div>
-  <h1>Professional Safety Adviser</h1>
-  <p>HSE Expert | Safety Inspector | Operations Specialist</p>
+  <!-- Profile Photo Container -->
+  <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
+    <img class="profile-img" id="profileImg" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
+  </div>
+
+  <!-- Professional Quick Links Bar (Email Only) -->
+  <div class="profile-social-bar">
+    <a class="social-pill two-click-link" data-href="mailto:ah3892888@gmail.com">
+      <i class="fas fa-envelope"></i> Email: ah3892888@gmail.com
+    </a>
+  </div>
+
+  <h1>Azeem Rasheed</h1>
+  <p>Professional Safety Adviser | HSE Expert & Safety Inspector</p>
+  
+  <!-- Header Action Buttons -->
+  <div class="header-btns">
+    <a class="btn btn-primary two-click-link" data-href="mailto:ah3892888@gmail.com">
+      <i class="fas fa-envelope"></i> Contact Me
+    </a>
+  </div>
 </header>
 
 <section>
-  <h2><i class="fas fa-user"></i> About Me</h2>
-  <div class="card">
-    <p>Dedicated Professional Safety Adviser with extensive training in occupational health and safety. Highly skilled in administrative tasks, digital documentation, and industrial machinery operations, committed to ensuring a safe and compliant working environment.</p>
+  <h2><i class="fas fa-shield-alt"></i> About Me</h2>
+  <div class="about-glowing-wrapper" id="aboutWrapper">
+    <div class="about">
+      <p>
+        I am Azeem Rasheed, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, administrative office systems, and industrial operations. Committed to ensuring top-tier safety compliance and risk management in every workplace environment.
+      </p>
+    </div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-  <div class="grid">
-    <div class="card"><h3>Matriculation</h3><p>Academic Foundation</p><p style="color:var(--accent-gold)">Score: 80%</p></div>
-    <div class="card"><h3>FSc (Intermediate)</h3><p>Higher Secondary Education</p><p style="color:var(--accent-gold)">Score: 70%</p></div>
-  </div>
-</section>
-
-<section>
-  <h2><i class="fas fa-certificate"></i> Certifications</h2>
-  <div class="grid">
-    <div class="card"><h3>NEBOSH IGC</h3><p>International General Certificate in Occupational Health & Safety</p></div>
-    <div class="card"><h3>OSHA (48 Hours)</h3><p>Industrial Safety & Hazard Control</p></div>
-    <div class="card"><h3>IOSH (30 Hours)</h3><p>Managing Safely Certification</p></div>
-    <div class="card"><h3>HSE (3 Months)</h3><p>Health, Safety, and Environment Specialized Course</p></div>
-  </div>
-</section>
-
-<section>
-  <h2><i class="fas fa-briefcase"></i> Experience & Skills</h2>
-  <div class="grid">
-    <div class="card"><h3>Professional Role</h3><p>Safety Inspector & Professional Safety Adviser</p></div>
-    <div class="card"><h3>Industrial Experience</h3><p>1 Year: Embroidery Machine Operator</p></div>
-    <div class="card"><h3>Office Experience</h3><p>1 Year: Administrative & MS Office Specialist</p></div>
-  </div>
-  <br>
+  <h2><i class="fas fa-graduation-cap"></i> Education & Academics</h2>
   <div class="skills">
-    <span class="skill-tag">MS Word</span>
-    <span class="skill-tag">MS Excel</span>
-    <span class="skill-tag">MS PowerPoint</span>
-    <span class="skill-tag">InPage</span>
-    <span class="skill-tag">Computer Basics</span>
+    <div class="skill"><i class="fas fa-award"></i><h3>Matriculation — 80%</h3></div>
+    <div class="skill"><i class="fas fa-certificate"></i><h3>FSc (Intermediate) — 70%</h3></div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-certificate"></i> HSE & Safety Certifications</h2>
+  <div class="skills">
+    <div class="skill"><i class="fas fa-hard-hat"></i><h3>NEBOSH IGC</h3></div>
+    <div class="skill"><i class="fas fa-shield-alt"></i><h3>OSHA (48 Hours)</h3></div>
+    <div class="skill"><i class="fas fa-user-shield"></i><h3>IOSH (30 Hours)</h3></div>
+    <div class="skill"><i class="fas fa-clipboard-check"></i><h3>HSE (3 Months)</h3></div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+  <div class="projects">
+
+    <div class="card">
+      <div>
+        <h3>Professional Safety Adviser & Safety Inspector</h3>
+        <p>Executing industrial safety audits, identifying workplace hazards, implementing compliance protocols, and advising teams on international HSE standards.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">HSE Compliance</span>
+        <span class="tag">Risk Assessment</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Office Administration & MS Office Master</h3>
+        <p>1 Year of professional experience managing documentation, record-keeping, and operational tasks using MS Office suite (Word, Excel, PowerPoint) and InPage.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">MS Excel</span>
+        <span class="tag">MS Word</span>
+        <span class="tag">PowerPoint</span>
+        <span class="tag">InPage</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Industrial Machine Operator</h3>
+        <p>1 Year of hands-on technical experience operating embroidery machinery, managing manufacturing workflows, and maintaining operational safety on the floor.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">Machinery Operations</span>
+        <span class="tag">Industrial Safety</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-laptop-code"></i> Core Skills & Training</h2>
+  <div class="skills">
+    <div class="skill"><i class="fas fa-desktop"></i><h3>Computer Basics</h3></div>
+    <div class="skill"><i class="fas fa-file-excel"></i><h3>MS Office Master</h3></div>
+    <div class="skill"><i class="fas fa-book"></i><h3>InPage & Typography</h3></div>
+    <div class="skill"><i class="fas fa-hard-hat"></i><h3>Safety Inspection</h3></div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Hashim Safety Professional Portfolio</p>
+  <p>© 2026 Azeem Rasheed | Professional Safety Adviser Portfolio</p>
 </footer>
 
+<!-- JavaScript Core Engine -->
+<script>
+  // Universal Haptic Vibration Function
+  function vibrate(pattern = [80]) {
+    if ('vibrate' in navigator) {
+      try { navigator.vibrate(pattern); } catch (e) {}
+    }
+  }
+
+  // 1. General Vibration Listener for interactive sections
+  document.querySelectorAll('.skill, .card, .about-glowing-wrapper').forEach(elem => {
+    elem.addEventListener('click', () => vibrate([60]));
+  });
+
+  // 2. Profile Photo Zoom Logic
+  const profileBox = document.getElementById('profileImgContainer');
+  if (profileBox) {
+    profileBox.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileBox.classList.toggle('zoomed');
+      vibrate([120, 50, 120]); // Heavy Vibration
+    });
+
+    // Zoom-out when clicking anywhere outside
+    document.addEventListener('click', (e) => {
+      if (!profileBox.contains(e.target)) {
+        profileBox.classList.remove('zoomed');
+      }
+    });
+  }
+
+  // 3. Two-Click Link Logic
+  const twoClickLinks = document.querySelectorAll('.two-click-link');
+  
+  twoClickLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (this.classList.contains('selected')) {
+        const targetUrl = this.getAttribute('data-href');
+        vibrate([50, 50, 100]);
+        window.location.href = targetUrl;
+      } else {
+        twoClickLinks.forEach(l => l.classList.remove('selected'));
+        this.classList.add('selected');
+        vibrate([40]);
+      }
+    });
+  });
+</script>
+
 </body>
-</html>
+  </html>
+
 
 
