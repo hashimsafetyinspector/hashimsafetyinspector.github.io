@@ -389,10 +389,10 @@ footer {
 <header>
   <!-- Profile Photo Container -->
   <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
-    <img class="profile-img" id="profileImg" src="https://github.com/hashimali.png" alt="Hashim Ali">
+    <img class="profile-img" id="profileImg" src="https://avatars.githubusercontent.com/u/hashimali?v=4" alt="Hashim Ali" onerror="this.src='https://github.com/hashimali.png'">
   </div>
 
-  <!-- Professional Quick Links Bar (Only Email & GitHub, LinkedIn removed) -->
+  <!-- Professional Quick Links Bar (Email & GitHub) -->
   <div class="profile-social-bar">
     <a class="social-pill two-click-link" data-href="mailto:hashimalinana@gmail.com">
       <i class="fas fa-envelope"></i> Email
@@ -552,7 +552,6 @@ footer {
         }
       } else {
         twoClickLinks.forEach(l => l.classList.remove('selected'));
-        this.classList.add('slected');
         this.classList.add('selected');
         vibrate([70]);
       }
@@ -568,6 +567,7 @@ footer {
 
 </body>
 </html>
+
 
 
   
