@@ -338,7 +338,7 @@ h2::after {
   color: var(--accent-purple);
 }
 
-/* Projects & Experience Shared Card Style */
+/* Projects & Cards */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -456,14 +456,14 @@ footer {
 <body>
 
 <header>
-  <!-- Profile Photo Container (Using hashimali github image as requested previously) -->
+  <!-- Profile Photo Container (Using hashimali github image directly) -->
   <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
     <img class="profile-img" id="profileImg" src="https://github.com/hashimali.png" alt="Hashim Ali">
   </div>
 
   <!-- Professional Quick Links Bar -->
   <div class="profile-social-bar">
-    <a class="social-pill two-click-link" data-href="mailto:contact@hashimali.com">
+    <a class="social-pill two-click-link" data-href="mailto:hashimali@gmail.com">
       <i class="fas fa-envelope"></i> Email
     </a>
     <a class="social-pill two-click-link" data-href="https://www.linkedin.com" target="_blank">
@@ -483,7 +483,7 @@ footer {
       <i class="fab fa-linkedin"></i> Connect on LinkedIn
     </a>
     <a class="btn two-click-link" data-href="https://github.com/hashimali" target="_blank">
-      <i class="fab fa-github"></i> Explore Repositories
+      <i class="fab fa-github"></i> Explore GitHub
     </a>
   </div>
 </header>
@@ -493,14 +493,26 @@ footer {
   <div class="about-glowing-wrapper" id="aboutWrapper">
     <div class="about">
       <p>
-        I am Hashim Ali, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, industrial operations, and administrative office systems. Committed to upholding rigorous safety protocols and ensuring optimal compliance across all work environments.
+        I am Hashim Ali, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, office administration, and industrial operations. Committed to ensuring high workplace safety and compliance.
       </p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-certificate"></i> HSE Certifications & Standards</h2>
+  <h2><i class="fas fa-laptop-code"></i> Core Skills</h2>
+  <div class="skills">
+    <div class="skill"><i class="fas fa-desktop"></i><h3>Computer Basic Course</h3></div>
+    <div class="skill"><i class="fas fa-file-excel"></i><h3>Master in MS Office</h3></div>
+    <div class="skill"><i class="fas fa-file-word"></i><h3>MS Word, Excel, PowerPoint</h3></div>
+    <div class="skill"><i class="fas fa-book"></i><h3>InPage Publishing</h3></div>
+    <div class="skill"><i class="fas fa-hard-hat"></i><h3>Safety Inspection</h3></div>
+    <div class="skill"><i class="fas fa-user-shield"></i><h3>Professional Safety Adviser</h3></div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-certificate"></i> HSE Certifications</h2>
   <div class="skills">
     <div class="skill"><i class="fas fa-hard-hat"></i><h3>NEBOSH IGC</h3></div>
     <div class="skill"><i class="fas fa-shield-alt"></i><h3>OSHA (48 Hours)</h3></div>
@@ -510,41 +522,28 @@ footer {
 </section>
 
 <section>
-  <h2><i class="fas fa-laptop-code"></i> Core Skills & Office Mastery</h2>
-  <div class="skills">
-    <div class="skill"><i class="fas fa-desktop"></i><h3>Computer Basic Course</h3></div>
-    <div class="skill"><i class="fas fa-file-excel"></i><h3>Master in MS Office</h3></div>
-    <div class="skill"><i class="fas fa-file-word"></i><h3>MS Word, Excel, PowerPoint</h3></div>
-    <div class="skill"><i class="fas fa-book"></i><h3>InPage Publishing</h3></div>
-    <div class="skill"><i class="fas fa-hard-hat"></i><h3>Safety Inspection</h3></div>
-    <div class="skill"><i class="fas fa-cogs"></i><h3>Professional Safety Adviser</h3></div>
-  </div>
-</section>
-
-<section>
-  <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+  <h2><i class="fas fa-briefcase"></i> Experience</h2>
   <div class="projects">
 
     <div class="card">
       <div>
-        <h3>1 Year Experience in MS Office</h3>
-        <p>Extensive hands-on administrative background managing documentation, professional reporting, data sheets, and formatting via Microsoft Office suite and InPage.</p>
+        <h3>One Year Experience in MS Office</h3>
+        <p>Managed professional documentation, office reporting, data management, spreadsheets, and document formatting using MS Office and InPage.</p>
       </div>
       <div class="tags">
-        <span class="tag">MS Excel</span>
-        <span class="tag">MS Word</span>
-        <span class="tag">PowerPoint</span>
+        <span class="tag">MS Office</span>
+        <span class="tag">Administration</span>
         <span class="tag">InPage</span>
       </div>
     </div>
 
     <div class="card">
       <div>
-        <h3>1 Year Experience as Embroidery Machine Operator</h3>
-        <p>Practical industrial background operating complex embroidery manufacturing machinery, supervising shift workflows, and maintaining factory floor safety standards.</p>
+        <h3>One Year Experience as Embroidery Machine Operator</h3>
+        <p>Operated industrial embroidery machinery, managed production floor workflows, and maintained factory safety protocols.</p>
       </div>
       <div class="tags">
-        <span class="tag">Machinery Operation</span>
+        <span class="tag">Machine Operator</span>
         <span class="tag">Industrial Safety</span>
       </div>
     </div>
@@ -552,7 +551,7 @@ footer {
     <div class="card">
       <div>
         <h3>Safety Inspector & Adviser Duties</h3>
-        <p>Executing workplace hazard assessments, auditing compliance protocols, and enforcing safety guidelines to protect personnel and assets.</p>
+        <p>Conducted workplace safety inspections, identified hazards, and implemented preventive HSE safety standards.</p>
       </div>
       <div class="tags">
         <span class="tag">Safety Audits</span>
@@ -564,13 +563,13 @@ footer {
 </section>
 
 <section>
-  <h2><i class="fas fa-graduation-cap"></i> Education & Academics</h2>
+  <h2><i class="fas fa-graduation-cap"></i> Education</h2>
   <div class="education-container">
     <div class="card" style="width: 100%; max-width: 800px;">
       <div>
-        <h3>Academic Credentials</h3>
-        <p style="color:var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Secondary & Higher Secondary Education</p>
-        <p>Successfully completed Matriculation with 80% marks and FSc (Intermediate) with 70% marks, establishing a strong academic foundation.</p>
+        <h3>Academic Records</h3>
+        <p style="color:var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Matriculation & Intermediate (FSc)</p>
+        <p>Successfully completed core academic milestones with strong foundational performance.</p>
       </div>
       <div class="tags">
         <span class="tag">Matric: 80%</span>
@@ -584,7 +583,7 @@ footer {
   <p>© 2026 Hashim Ali | Professional Safety Adviser Portfolio</p>
 </footer>
 
-<!-- JavaScript Core Engine -->
+<!-- JavaScript Core Engine with Full Vibration & Click Logic -->
 <script>
   // Universal Haptic Vibration Function
   function vibrate(pattern = [80]) {
@@ -598,13 +597,13 @@ footer {
     elem.addEventListener('click', () => vibrate([60]));
   });
 
-  // 2. Profile Photo Zoom Logic
+  // 2. Profile Photo Zoom Logic with Vibration
   const profileBox = document.getElementById('profileImgContainer');
   if (profileBox) {
     profileBox.addEventListener('click', (e) => {
       e.stopPropagation();
       profileBox.classList.toggle('zoomed');
-      vibrate([120, 50, 120]);
+      vibrate([120, 50, 120]); // Heavy Vibration
     });
 
     document.addEventListener('click', (e) => {
@@ -649,7 +648,9 @@ footer {
 </script>
 
 </body>
-  </html>
+</html>
+
+  
         
 
 
