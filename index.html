@@ -4,444 +4,113 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Safety Professional Portfolio</title>
-<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-  --bg-main: #030712;
-  --bg-card: #0b0f19;
-  --bg-card-hover: #111827;
-  --accent-cyan: #00f2fe;
-  --accent-purple: #a855f7;
-  --accent-blue: #3b82f6;
-  --accent-glow: rgba(0, 242, 254, 0.4);
+  --bg-main: #0a0a0c;
+  --bg-card: #15151a;
+  --accent-gold: #fbbf24;
+  --accent-blue: #38bdf8;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(0, 242, 254, 0.5);
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-  -webkit-tap-highlight-color: transparent;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-cyan);
-}
+body { background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
 
-body {
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
-}
-
-/* Header Section */
+/* Header */
 header {
-  background: linear-gradient(135deg, rgba(11, 15, 25, 0.95), rgba(3, 7, 18, 0.98));
-  padding: 80px 20px 60px;
+  padding: 80px 20px;
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
-  position: relative;
+  background: linear-gradient(to bottom, #1e293b, #0a0a0c);
+  border-bottom: 2px solid var(--accent-gold);
 }
 
-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
+.profile-icon {
+  font-size: 80px;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
 }
 
-/* Profile Icon Container */
-.profile-img-container {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(0, 242, 254, 0.05);
-  border: 3px solid var(--accent-cyan);
-  box-shadow: 0 0 35px var(--accent-glow);
-  margin-bottom: 25px;
-}
+header h1 { font-size: 40px; color: #fff; margin-bottom: 10px; }
+header p { font-size: 18px; color: var(--accent-blue); font-weight: bold; }
 
-header h1 {
-  font-size: 46px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan), var(--accent-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
-  text-shadow: 0 0 40px rgba(0, 242, 254, 0.2);
-}
+/* Sections */
+section { max-width: 900px; margin: auto; padding: 50px 20px; }
+h2 { font-size: 26px; margin-bottom: 30px; color: var(--accent-gold); display: flex; align-items: center; gap: 15px; }
+h2::after { content: ''; flex: 1; height: 1px; background: var(--border-color); }
 
-header p {
-  font-size: 17px;
-  color: var(--accent-cyan);
-  margin-bottom: 28px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
+/* Grid Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: var(--bg-card); padding: 25px; border-radius: 15px; border: 1px solid var(--border-color); transition: 0.3s; }
+.card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
+.card h3 { color: var(--accent-blue); margin-bottom: 10px; }
+.card p { color: var(--text-muted); font-size: 14px; }
 
-/* Layout Container */
-section {
-  max-width: 1050px;
-  margin: auto;
-  padding: 55px 20px;
-}
+/* Skills */
+.skills { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-tag { background: #1e293b; padding: 10px 20px; border-radius: 50px; border: 1px solid var(--accent-blue); color: var(--accent-blue); font-size: 14px; }
 
-h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-weight: 700;
-}
-
-h2 i {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 15px var(--accent-glow);
-}
-
-h2::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--border-hover), transparent);
-  margin-left: 15px;
-}
-
-/* About Me Box - Rotating Light Animation */
-.about-glowing-wrapper {
-  position: relative;
-  border-radius: 22px;
-  padding: 2px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.about {
-  position: relative;
-  background: var(--bg-card);
-  padding: 35px;
-  border-radius: 20px;
-  font-size: 16px;
-  color: var(--text-muted);
-  text-align: center !important;
-  z-index: 1;
-}
-
-.about p {
-  text-align: center !important;
-  margin: 0 auto;
-}
-
-/* Skills Grid */
-.skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.skill {
-  background: var(--bg-card);
-  padding: 24px;
-  border-radius: 16px;
-  text-align: left;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.skill i {
-  font-size: 26px;
-  color: var(--accent-cyan);
-}
-
-.skill h3 {
-  font-size: 15px;
-  color: var(--text-main);
-  font-weight: 600;
-}
-
-.skill:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent-cyan);
-  background: var(--bg-card-hover);
-  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.15);
-}
-
-/* Cards (Experience & Education) */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  background: var(--bg-card);
-  padding: 30px;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card h3 {
-  color: var(--accent-cyan);
-  margin-bottom: 14px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.card p {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.tag {
-  background: rgba(0, 242, 254, 0.06);
-  color: var(--accent-cyan);
-  padding: 6px 14px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(0, 242, 254, 0.15);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 40px;
-  background: var(--bg-card);
-  margin-top: 70px;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-@media (max-width: 600px) {
-  header h1 { font-size: 32px; }
-  header p { font-size: 15px; }
-}
+footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border-color); }
 </style>
 </head>
 <body>
 
 <header>
-  <!-- Safety Icon Container -->
-  <div class="profile-img-container">
-    <i class="fas fa-hard-hat" style="font-size: 55px; color: var(--accent-cyan);"></i>
-  </div>
-
-  <h1>Professional Safety Adviser & Operations Specialist</h1>
-  <p>HSE Expert | Safety Inspector | Administrative Professional</p>
+  <div class="profile-icon"><i class="fas fa-hard-hat"></i></div>
+  <h1>Professional Safety Adviser</h1>
+  <p>HSE Expert | Safety Inspector | Operations Specialist</p>
 </header>
 
 <section>
-  <h2><i class="fas fa-user-shield"></i> About Me</h2>
-  <div class="about-glowing-wrapper">
-    <div class="about">
-      <p>
-        Dedicated and certified Professional Safety Adviser and HSE Specialist with comprehensive training in occupational health, safety standards, and industrial operations. Backed by solid administrative expertise, digital proficiency, and hands-on operational experience committed to maintaining secure, compliant, and efficient work environments.
-      </p>
-    </div>
+  <h2><i class="fas fa-user"></i> About Me</h2>
+  <div class="card">
+    <p>Dedicated Professional Safety Adviser with extensive training in occupational health and safety. Highly skilled in administrative tasks, digital documentation, and industrial machinery operations, committed to ensuring a safe and compliant working environment.</p>
   </div>
 </section>
 
 <section>
   <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <div>
-        <h3>Matriculation</h3>
-        <p>Secured an outstanding 80% marks, establishing a strong foundational academic background.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Score: 80%</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3>FSc (Intermediate)</h3>
-        <p>Completed higher secondary education with a solid 70% marks performance.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Score: 70%</span>
-      </div>
-    </div>
+  <div class="grid">
+    <div class="card"><h3>Matriculation</h3><p>Academic Foundation</p><p style="color:var(--accent-gold)">Score: 80%</p></div>
+    <div class="card"><h3>FSc (Intermediate)</h3><p>Higher Secondary Education</p><p style="color:var(--accent-gold)">Score: 70%</p></div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-certificate"></i> Safety Certifications & Credentials</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <div>
-        <h3>NEBOSH IGC</h3>
-        <p>Internationally recognized qualification in occupational health and safety management, risk assessment, and hazard control.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">HSE</span>
-        <span class="tag">Global Standard</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3>OSHA (48 Hours)</h3>
-        <p>Comprehensive training covering workplace safety regulations, hazard identification, and compliance procedures.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Compliance</span>
-        <span class="tag">Industrial Safety</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3>IOSH (30 Hours)</h3>
-        <p>Managing Safely certification focusing on health and safety responsibilities in the workplace.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Safety Leadership</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3>HSE (3 Months Course)</h3>
-        <p>Intensive specialized course in Health, Safety, and Environment protocols and practical implementation.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Environment</span>
-        <span class="tag">Safety Protocols</span>
-      </div>
-    </div>
+  <h2><i class="fas fa-certificate"></i> Certifications</h2>
+  <div class="grid">
+    <div class="card"><h3>NEBOSH IGC</h3><p>International General Certificate in Occupational Health & Safety</p></div>
+    <div class="card"><h3>OSHA (48 Hours)</h3><p>Industrial Safety & Hazard Control</p></div>
+    <div class="card"><h3>IOSH (30 Hours)</h3><p>Managing Safely Certification</p></div>
+    <div class="card"><h3>HSE (3 Months)</h3><p>Health, Safety, and Environment Specialized Course</p></div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <div>
-        <h3>Safety Inspector</h3>
-        <p>Conducted rigorous workplace safety inspections, monitored hazard controls, ensured regulatory compliance, and promoted safe operational practices on site.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Risk Control</span>
-        <span class="tag">Inspections</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3>MS Office & Admin Experience (1 Year)</h3>
-        <p>Handled professional documentation, data tracking, reporting, and administrative tasks utilizing modern office tools efficiently.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Documentation</span>
-        <span class="tag">Admin Support</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div>
-        <h3>Embroidery Machine Operator (1 Year)</h3>
-        <p>Operated industrial machinery with precision, managing production workflows, equipment maintenance, and quality standards.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Machine Operations</span>
-        <span class="tag">Production</span>
-      </div>
-    </div>
+  <h2><i class="fas fa-briefcase"></i> Experience & Skills</h2>
+  <div class="grid">
+    <div class="card"><h3>Professional Role</h3><p>Safety Inspector & Professional Safety Adviser</p></div>
+    <div class="card"><h3>Industrial Experience</h3><p>1 Year: Embroidery Machine Operator</p></div>
+    <div class="card"><h3>Office Experience</h3><p>1 Year: Administrative & MS Office Specialist</p></div>
   </div>
-</section>
-
-<section>
-  <h2><i class="fas fa-laptop-code"></i> Technical & Office Skills</h2>
+  <br>
   <div class="skills">
-    <div class="skill"><i class="fas fa-shield-alt"></i><h3>Professional Safety Adviser</h3></div>
-    <div class="skill"><i class="fas fa-clipboard-check"></i><h3>Safety Inspections</h3></div>
-    <div class="skill"><i class="fas fa-laptop"></i><h3>Computer Basic Course</h3></div>
-    <div class="skill"><i class="fas fa-file-word"></i><h3>MS Word</h3></div>
-    <div class="skill"><i class="fas fa-file-excel"></i><h3>MS Excel</h3></div>
-    <div class="skill"><i class="fas fa-file-powerpoint"></i><h3>MS PowerPoint</h3></div>
-    <div class="skill"><i class="fas fa-font"></i><h3>InPage</h3></div>
-    <div class="skill"><i class="fas fa-cogs"></i><h3>Machine Operations</h3></div>
+    <span class="skill-tag">MS Word</span>
+    <span class="skill-tag">MS Excel</span>
+    <span class="skill-tag">MS PowerPoint</span>
+    <span class="skill-tag">InPage</span>
+    <span class="skill-tag">Computer Basics</span>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Professional Safety Adviser Portfolio | All Rights Reserved</p>
+  <p>© 2026 Hashim Safety Professional Portfolio</p>
 </footer>
 
 </body>
 </html>
+
 
