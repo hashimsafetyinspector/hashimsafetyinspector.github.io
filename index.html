@@ -12,15 +12,14 @@
   --bg-main: #030712;
   --bg-card: #0b0f19;
   --bg-card-hover: #111827;
-  --accent-cyan: #06b6d4;
-  --accent-purple: #8b5cf6;
+  --accent-cyan: #00f2fe;
+  --accent-purple: #a855f7;
   --accent-blue: #3b82f6;
-  --accent-gold: #f59e0b;
-  --accent-glow: rgba(6, 182, 212, 0.4);
+  --accent-glow: rgba(0, 242, 254, 0.4);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --border-color: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(6, 182, 212, 0.5);
+  --border-hover: rgba(0, 242, 254, 0.5);
 }
 
 * {
@@ -52,14 +51,14 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
 }
 
 /* Header Section */
 header {
   background: linear-gradient(135deg, rgba(11, 15, 25, 0.95), rgba(3, 7, 18, 0.98)),
-              url('https://images.unsplash.com/photo-1541888946425-d0fbb18f1f5d?auto=format&fit=crop&w=1200&q=80');
+              url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');
   background-size: cover;
   background-position: center;
   padding: 80px 20px 60px;
@@ -76,7 +75,7 @@ header::after {
   transform: translateX(-50%);
   width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
 }
 
 /* Profile Photo Zoom Wrapper & Container */
@@ -103,7 +102,7 @@ header::after {
 /* Large Zoom State */
 .profile-img-container.zoomed .profile-img {
   transform: scale(2.1);
-  box-shadow: 0 0 80px rgba(6, 182, 212, 0.9), 0 0 120px rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 80px rgba(0, 242, 254, 0.9), 0 0 120px rgba(168, 85, 247, 0.6);
   border-color: #ffffff;
 }
 
@@ -139,28 +138,29 @@ header::after {
   pointer-events: none;
 }
 
+/* Selected State for 1st Click */
 .social-pill.selected {
-  background: rgba(6, 182, 212, 0.2);
+  background: rgba(0, 242, 254, 0.2);
   border-color: var(--accent-cyan);
   color: #fff;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 25px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
 }
 
 header h1 {
   font-size: 46px;
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan), var(--accent-gold));
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan), var(--accent-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
-  text-shadow: 0 0 40px rgba(6, 182, 212, 0.2);
+  text-shadow: 0 0 40px rgba(0, 242, 254, 0.2);
 }
 
 header p {
   font-size: 17px;
-  color: var(--accent-gold);
+  color: var(--accent-cyan);
   margin-bottom: 28px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -196,25 +196,25 @@ header p {
 }
 
 .btn.selected {
-  background: rgba(6, 182, 212, 0.2);
+  background: rgba(0, 242, 254, 0.2);
   border-color: var(--accent-cyan);
   color: #fff;
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  background: linear-gradient(135deg, #00f2fe, #3b82f6);
   color: #030712;
   border: none;
   font-weight: 700;
-  box-shadow: 0 4px 25px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 4px 25px rgba(0, 242, 254, 0.4);
 }
 
 .btn-primary.selected {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  background: linear-gradient(135deg, #3b82f6, #00f2fe);
   color: #fff;
-  box-shadow: 0 6px 35px rgba(6, 182, 212, 0.8);
+  box-shadow: 0 6px 35px rgba(0, 242, 254, 0.8);
 }
 
 /* Layout Container */
@@ -262,14 +262,14 @@ h2::after {
 
 .about-glowing-wrapper:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 45px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 15px 45px rgba(0, 242, 254, 0.25);
 }
 
 .about-glowing-wrapper::before {
   content: '';
   position: absolute;
   inset: -50%;
-  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, var(--accent-cyan) 90deg, var(--accent-gold) 180deg, transparent 270deg, transparent 360deg);
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, var(--accent-cyan) 90deg, var(--accent-purple) 180deg, transparent 270deg, transparent 360deg);
   animation: rotateLight 4s linear infinite;
 }
 
@@ -330,15 +330,15 @@ h2::after {
   transform: translateY(-6px);
   border-color: var(--accent-cyan);
   background: var(--bg-card-hover);
-  box-shadow: 0 12px 35px rgba(6, 182, 212, 0.15);
+  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.15);
 }
 
 .skill:hover i {
   transform: scale(1.25) rotate(5deg);
-  color: var(--accent-gold);
+  color: var(--accent-purple);
 }
 
-/* Projects & Education Shared Card Style */
+/* Projects Card Style */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -359,26 +359,10 @@ h2::after {
   cursor: pointer;
 }
 
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-gold));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .card:hover {
   border-color: var(--border-hover);
   transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(6, 182, 212, 0.2);
-}
-
-.card:hover::before {
-  opacity: 1;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
 }
 
 .card h3 {
@@ -401,22 +385,15 @@ h2::after {
 }
 
 .tag {
-  background: rgba(6, 182, 212, 0.06);
+  background: rgba(0, 242, 254, 0.06);
   color: var(--accent-cyan);
   padding: 6px 14px;
   border-radius: 10px;
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(0, 242, 254, 0.15);
 }
 
-/* Education Container Centered */
-.education-container {
-  display: flex;
-  justify-content: center;
-}
-
-/* Footer */
 footer {
   text-align: center;
   padding: 40px;
@@ -426,63 +403,40 @@ footer {
   color: var(--text-muted);
   font-size: 14px;
 }
-
-@media (max-width: 600px) {
-  header h1 { font-size: 32px; }
-  header p { font-size: 15px; }
-  .header-btns { flex-direction: column; }
-  .profile-social-bar { gap: 8px; }
-  .social-pill { padding: 8px 14px; font-size: 12px; }
-}
 </style>
 </head>
 <body>
 
 <header>
-  <!-- Profile Photo Container -->
-  <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
+  <div class="profile-img-container" id="profileImgContainer">
     <img class="profile-img" id="profileImg" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
   </div>
 
-  <!-- Professional Quick Links Bar (Email Only) -->
-  <div class="profile-social-bar">
-    <a class="social-pill two-click-link" data-href="mailto:ah3892888@gmail.com">
-      <i class="fas fa-envelope"></i> Email: ah3892888@gmail.com
-    </a>
-  </div>
-
   <h1>Azeem Rasheed</h1>
-  <p>Professional Safety Adviser | HSE Expert & Safety Inspector</p>
-  
-  <!-- Header Action Buttons -->
-  <div class="header-btns">
-    <a class="btn btn-primary two-click-link" data-href="mailto:ah3892888@gmail.com">
-      <i class="fas fa-envelope"></i> Contact Me
-    </a>
-  </div>
+  <p>Professional Safety Adviser | HSE Expert</p>
 </header>
 
 <section>
-  <h2><i class="fas fa-shield-alt"></i> About Me</h2>
-  <div class="about-glowing-wrapper" id="aboutWrapper">
+  <h2><i class="fas fa-user-shield"></i> About Me</h2>
+  <div class="about-glowing-wrapper">
     <div class="about">
       <p>
-        I am Azeem Rasheed, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, administrative office systems, and industrial operations. Committed to ensuring top-tier safety compliance and risk management in every workplace environment.
+        I am Azeem Rasheed, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, administrative office systems, and industrial operations.
       </p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-graduation-cap"></i> Education & Academics</h2>
+  <h2><i class="fas fa-graduation-cap"></i> Academics</h2>
   <div class="skills">
-    <div class="skill"><i class="fas fa-award"></i><h3>Matriculation — 80%</h3></div>
-    <div class="skill"><i class="fas fa-certificate"></i><h3>FSc (Intermediate) — 70%</h3></div>
+    <div class="skill"><i class="fas fa-award"></i><h3>Matriculation (80%)</h3></div>
+    <div class="skill"><i class="fas fa-certificate"></i><h3>FSc (70%)</h3></div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-certificate"></i> HSE & Safety Certifications</h2>
+  <h2><i class="fas fa-certificate"></i> HSE Certifications</h2>
   <div class="skills">
     <div class="skill"><i class="fas fa-hard-hat"></i><h3>NEBOSH IGC</h3></div>
     <div class="skill"><i class="fas fa-shield-alt"></i><h3>OSHA (48 Hours)</h3></div>
@@ -492,115 +446,37 @@ footer {
 </section>
 
 <section>
-  <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+  <h2><i class="fas fa-briefcase"></i> Experience</h2>
   <div class="projects">
-
     <div class="card">
-      <div>
-        <h3>Professional Safety Adviser & Safety Inspector</h3>
-        <p>Executing industrial safety audits, identifying workplace hazards, implementing compliance protocols, and advising teams on international HSE standards.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">HSE Compliance</span>
-        <span class="tag">Risk Assessment</span>
-      </div>
+      <h3>Safety Adviser & Inspector</h3>
+      <p>Executing industrial safety audits, identifying hazards, and implementing compliance protocols.</p>
+      <div class="tags"><span class="tag">HSE</span><span class="tag">Risk Management</span></div>
     </div>
-
     <div class="card">
-      <div>
-        <h3>Office Administration & MS Office Master</h3>
-        <p>1 Year of professional experience managing documentation, record-keeping, and operational tasks using MS Office suite (Word, Excel, PowerPoint) and InPage.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">MS Excel</span>
-        <span class="tag">MS Word</span>
-        <span class="tag">PowerPoint</span>
-        <span class="tag">InPage</span>
-      </div>
+      <h3>Office Admin & MS Office</h3>
+      <p>1 Year experience in document management and operational tasks using MS Office suite.</p>
+      <div class="tags"><span class="tag">Excel</span><span class="tag">Word</span></div>
     </div>
-
     <div class="card">
-      <div>
-        <h3>Industrial Machine Operator</h3>
-        <p>1 Year of hands-on technical experience operating embroidery machinery, managing manufacturing workflows, and maintaining operational safety on the floor.</p>
-      </div>
-      <div class="tags">
-        <span class="tag">Machinery Operations</span>
-        <span class="tag">Industrial Safety</span>
-      </div>
+      <h3>Industrial Machine Operator</h3>
+      <p>1 Year experience in embroidery machine operations and floor safety.</p>
+      <div class="tags"><span class="tag">Technical</span><span class="tag">Industrial</span></div>
     </div>
-
   </div>
 </section>
 
-<section>
-  <h2><i class="fas fa-laptop-code"></i> Core Skills & Training</h2>
-  <div class="skills">
-    <div class="skill"><i class="fas fa-desktop"></i><h3>Computer Basics</h3></div>
-    <div class="skill"><i class="fas fa-file-excel"></i><h3>MS Office Master</h3></div>
-    <div class="skill"><i class="fas fa-book"></i><h3>InPage & Typography</h3></div>
-    <div class="skill"><i class="fas fa-hard-hat"></i><h3>Safety Inspection</h3></div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Azeem Rasheed | Professional Safety Adviser Portfolio</p>
-</footer>
-
-<!-- JavaScript Core Engine -->
 <script>
-  // Universal Haptic Vibration Function
   function vibrate(pattern = [80]) {
-    if ('vibrate' in navigator) {
-      try { navigator.vibrate(pattern); } catch (e) {}
-    }
+    if ('vibrate' in navigator) { try { navigator.vibrate(pattern); } catch (e) {} }
   }
-
-  // 1. General Vibration Listener for interactive sections
-  document.querySelectorAll('.skill, .card, .about-glowing-wrapper').forEach(elem => {
+  document.querySelectorAll('.skill, .card').forEach(elem => {
     elem.addEventListener('click', () => vibrate([60]));
   });
-
-  // 2. Profile Photo Zoom Logic
-  const profileBox = document.getElementById('profileImgContainer');
-  if (profileBox) {
-    profileBox.addEventListener('click', (e) => {
-      e.stopPropagation();
-      profileBox.classList.toggle('zoomed');
-      vibrate([120, 50, 120]); // Heavy Vibration
-    });
-
-    // Zoom-out when clicking anywhere outside
-    document.addEventListener('click', (e) => {
-      if (!profileBox.contains(e.target)) {
-        profileBox.classList.remove('zoomed');
-      }
-    });
-  }
-
-  // 3. Two-Click Link Logic
-  const twoClickLinks = document.querySelectorAll('.two-click-link');
-  
-  twoClickLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      if (this.classList.contains('selected')) {
-        const targetUrl = this.getAttribute('data-href');
-        vibrate([50, 50, 100]);
-        window.location.href = targetUrl;
-      } else {
-        twoClickLinks.forEach(l => l.classList.remove('selected'));
-        this.classList.add('selected');
-        vibrate([40]);
-      }
-    });
-  });
 </script>
-
 </body>
-  </html>
+</html>
+
 
 
 
