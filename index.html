@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hashim Ali | Safety Professional & Systems Portfolio</title>
+<title>Hashim Ali | Professional Safety Adviser & Systems Portfolio</title>
 <meta name="google-site-verification" content="11lwcCAqtleg0olQEfAuu__Ml9If-L7WntBMcMas7Kw" />
 <!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -99,6 +99,54 @@ header::after {
   pointer-events: none;
 }
 
+/* Large Zoom State */
+.profile-img-container.zoomed .profile-img {
+  transform: scale(2.1);
+  box-shadow: 0 0 80px rgba(0, 242, 254, 0.9), 0 0 120px rgba(168, 85, 247, 0.6);
+  border-color: #ffffff;
+}
+
+/* Professional Quick Links Bar */
+.profile-social-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-pill i {
+  color: var(--accent-cyan);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+/* Selected State for 1st Click */
+.social-pill.selected {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+}
+
 header h1 {
   font-size: 46px;
   font-weight: 800;
@@ -118,6 +166,58 @@ header p {
   letter-spacing: 0.5px;
 }
 
+/* Header Action Buttons */
+.header-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn i {
+  pointer-events: none;
+}
+
+.btn.selected {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00f2fe, #3b82f6);
+  color: #030712;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 4px 25px rgba(0, 242, 254, 0.4);
+}
+
+.btn-primary.selected {
+  background: linear-gradient(135deg, #3b82f6, #00f2fe);
+  color: #fff;
+  box-shadow: 0 6px 35px rgba(0, 242, 254, 0.8);
+}
+
+/* Layout Container */
 section {
   max-width: 1050px;
   margin: auto;
@@ -147,6 +247,7 @@ h2::after {
   margin-left: 15px;
 }
 
+/* About Me Box - Rotating Light Animation */
 .about-glowing-wrapper {
   position: relative;
   border-radius: 22px;
@@ -154,8 +255,27 @@ h2::after {
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.about-glowing-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 45px rgba(0, 242, 254, 0.25);
+}
+
+.about-glowing-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, var(--accent-cyan) 90deg, var(--accent-purple) 180deg, transparent 270deg, transparent 360deg);
+  animation: rotateLight 4s linear infinite;
+}
+
+@keyframes rotateLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .about {
@@ -165,9 +285,16 @@ h2::after {
   border-radius: 20px;
   font-size: 16px;
   color: var(--text-muted);
-  text-align: center;
+  text-align: center !important;
+  z-index: 1;
 }
 
+.about p {
+  text-align: center !important;
+  margin: 0 auto;
+}
+
+/* Skills Grid */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -178,6 +305,8 @@ h2::after {
   background: var(--bg-card);
   padding: 24px;
   border-radius: 16px;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -188,6 +317,7 @@ h2::after {
 .skill i {
   font-size: 26px;
   color: var(--accent-cyan);
+  transition: transform 0.3s ease;
 }
 
 .skill h3 {
@@ -196,6 +326,19 @@ h2::after {
   font-weight: 600;
 }
 
+.skill:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-cyan);
+  background: var(--bg-card-hover);
+  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.15);
+}
+
+.skill:hover i {
+  transform: scale(1.25) rotate(5deg);
+  color: var(--accent-purple);
+}
+
+/* Projects & Experience Shared Card Style */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -207,7 +350,35 @@ h2::after {
   padding: 30px;
   border-radius: 20px;
   border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h3 {
@@ -217,11 +388,33 @@ h2::after {
   font-weight: 700;
 }
 
+.card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  color: var(--accent-purple);
+  transform: translateX(6px);
+}
+
 .tags {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 10px;
 }
 
 .tag {
@@ -230,8 +423,17 @@ h2::after {
   padding: 6px 14px;
   border-radius: 10px;
   font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 242, 254, 0.15);
 }
 
+/* Education Container Centered */
+.education-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 40px;
@@ -241,41 +443,64 @@ footer {
   color: var(--text-muted);
   font-size: 14px;
 }
+
+@media (max-width: 600px) {
+  header h1 { font-size: 32px; }
+  header p { font-size: 15px; }
+  .header-btns { flex-direction: column; }
+  .profile-social-bar { gap: 8px; }
+  .social-pill { padding: 8px 14px; font-size: 12px; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <!-- GitHub Profile Image -->
-  <div class="profile-img-container" id="profileImgContainer">
+  <!-- Profile Photo Container (Using hashimali github image as requested previously) -->
+  <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
     <img class="profile-img" id="profileImg" src="https://github.com/hashimali.png" alt="Hashim Ali">
   </div>
 
+  <!-- Professional Quick Links Bar -->
+  <div class="profile-social-bar">
+    <a class="social-pill two-click-link" data-href="mailto:contact@hashimali.com">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    <a class="social-pill two-click-link" data-href="https://www.linkedin.com" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a class="social-pill two-click-link" data-href="https://github.com/hashimali" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+
   <h1>Hashim Ali</h1>
-  <p>Professional Safety Adviser | HSE Expert</p>
+  <p>Professional Safety Adviser | HSE Expert & Safety Inspector</p>
+  
+  <!-- Header Action Buttons -->
+  <div class="header-btns">
+    <a class="btn btn-primary two-click-link" data-href="https://www.linkedin.com" target="_blank">
+      <i class="fab fa-linkedin"></i> Connect on LinkedIn
+    </a>
+    <a class="btn two-click-link" data-href="https://github.com/hashimali" target="_blank">
+      <i class="fab fa-github"></i> Explore Repositories
+    </a>
+  </div>
 </header>
 
 <section>
-  <h2><i class="fas fa-user-shield"></i> About Me</h2>
-  <div class="about-glowing-wrapper">
+  <h2><i class="fas fa-shield-alt"></i> About Me</h2>
+  <div class="about-glowing-wrapper" id="aboutWrapper">
     <div class="about">
       <p>
-        I am Hashim Ali, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, administrative office systems, and industrial operations.
+        I am Hashim Ali, a dedicated Professional Safety Adviser and Safety Inspector with comprehensive expertise in Health, Safety, and Environment (HSE) standards, industrial operations, and administrative office systems. Committed to upholding rigorous safety protocols and ensuring optimal compliance across all work environments.
       </p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2><i class="fas fa-graduation-cap"></i> Academics</h2>
-  <div class="skills">
-    <div class="skill"><i class="fas fa-award"></i><h3>Matriculation (80%)</h3></div>
-    <div class="skill"><i class="fas fa-certificate"></i><h3>FSc (70%)</h3></div>
-  </div>
-</section>
-
-<section>
-  <h2><i class="fas fa-certificate"></i> HSE Certifications</h2>
+  <h2><i class="fas fa-certificate"></i> HSE Certifications & Standards</h2>
   <div class="skills">
     <div class="skill"><i class="fas fa-hard-hat"></i><h3>NEBOSH IGC</h3></div>
     <div class="skill"><i class="fas fa-shield-alt"></i><h3>OSHA (48 Hours)</h3></div>
@@ -285,29 +510,147 @@ footer {
 </section>
 
 <section>
-  <h2><i class="fas fa-briefcase"></i> Experience</h2>
+  <h2><i class="fas fa-laptop-code"></i> Core Skills & Office Mastery</h2>
+  <div class="skills">
+    <div class="skill"><i class="fas fa-desktop"></i><h3>Computer Basic Course</h3></div>
+    <div class="skill"><i class="fas fa-file-excel"></i><h3>Master in MS Office</h3></div>
+    <div class="skill"><i class="fas fa-file-word"></i><h3>MS Word, Excel, PowerPoint</h3></div>
+    <div class="skill"><i class="fas fa-book"></i><h3>InPage Publishing</h3></div>
+    <div class="skill"><i class="fas fa-hard-hat"></i><h3>Safety Inspection</h3></div>
+    <div class="skill"><i class="fas fa-cogs"></i><h3>Professional Safety Adviser</h3></div>
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
   <div class="projects">
+
     <div class="card">
-      <h3>Safety Adviser & Inspector</h3>
-      <p>Executing industrial safety audits, identifying hazards, and implementing compliance protocols.</p>
-      <div class="tags"><span class="tag">HSE</span><span class="tag">Risk Management</span></div>
+      <div>
+        <h3>1 Year Experience in MS Office</h3>
+        <p>Extensive hands-on administrative background managing documentation, professional reporting, data sheets, and formatting via Microsoft Office suite and InPage.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">MS Excel</span>
+        <span class="tag">MS Word</span>
+        <span class="tag">PowerPoint</span>
+        <span class="tag">InPage</span>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Office Admin & MS Office</h3>
-      <p>1 Year experience in document management and operational tasks using MS Office suite.</p>
-      <div class="tags"><span class="tag">Excel</span><span class="tag">Word</span></div>
+      <div>
+        <h3>1 Year Experience as Embroidery Machine Operator</h3>
+        <p>Practical industrial background operating complex embroidery manufacturing machinery, supervising shift workflows, and maintaining factory floor safety standards.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">Machinery Operation</span>
+        <span class="tag">Industrial Safety</span>
+      </div>
     </div>
+
     <div class="card">
-      <h3>Industrial Machine Operator</h3>
-      <p>1 Year experience in embroidery machine operations and floor safety.</p>
-      <div class="tags"><span class="tag">Technical</span><span class="tag">Industrial</span></div>
+      <div>
+        <h3>Safety Inspector & Adviser Duties</h3>
+        <p>Executing workplace hazard assessments, auditing compliance protocols, and enforcing safety guidelines to protect personnel and assets.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">Safety Audits</span>
+        <span class="tag">Risk Management</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-graduation-cap"></i> Education & Academics</h2>
+  <div class="education-container">
+    <div class="card" style="width: 100%; max-width: 800px;">
+      <div>
+        <h3>Academic Credentials</h3>
+        <p style="color:var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Secondary & Higher Secondary Education</p>
+        <p>Successfully completed Matriculation with 80% marks and FSc (Intermediate) with 70% marks, establishing a strong academic foundation.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">Matric: 80%</span>
+        <span class="tag">FSc: 70%</span>
+      </div>
     </div>
   </div>
 </section>
 
-</body>
-</html>
+<footer>
+  <p>© 2026 Hashim Ali | Professional Safety Adviser Portfolio</p>
+</footer>
 
+<!-- JavaScript Core Engine -->
+<script>
+  // Universal Haptic Vibration Function
+  function vibrate(pattern = [80]) {
+    if ('vibrate' in navigator) {
+      try { navigator.vibrate(pattern); } catch (e) {}
+    }
+  }
+
+  // 1. General Vibration Listener for interactive sections
+  document.querySelectorAll('.skill, .card, .about-glowing-wrapper').forEach(elem => {
+    elem.addEventListener('click', () => vibrate([60]));
+  });
+
+  // 2. Profile Photo Zoom Logic
+  const profileBox = document.getElementById('profileImgContainer');
+  if (profileBox) {
+    profileBox.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileBox.classList.toggle('zoomed');
+      vibrate([120, 50, 120]);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!profileBox.contains(e.target)) {
+        profileBox.classList.remove('zoomed');
+      }
+    });
+  }
+
+  // 3. Two-Click Link Logic
+  const twoClickLinks = document.querySelectorAll('.two-click-link');
+  
+  twoClickLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (this.classList.contains('selected')) {
+        const targetUrl = this.getAttribute('data-href');
+        const isBlank = this.getAttribute('target') === '_blank';
+        
+        vibrate([50, 50, 100]);
+        
+        if (isBlank) {
+          window.open(targetUrl, '_blank');
+        } else {
+          window.location.href = targetUrl;
+        }
+      } else {
+        twoClickLinks.forEach(l => l.classList.remove('selected'));
+        this.classList.add('selected');
+        vibrate([70]);
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.two-click-link')) {
+      twoClickLinks.forEach(l => l.classList.remove('selected'));
+    }
+  });
+</script>
+
+</body>
+  </html>
+        
 
 
 
